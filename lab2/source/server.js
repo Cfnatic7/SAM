@@ -7,7 +7,7 @@ app.get('/', (req, res) => {
 	if (req.query.audioFile) {
 		sentMessage += `<audio id = "audioPlayer" src = ${req.query.audioFile}></audio>`;
 		sentMessage += `<button type="button" id = "audioCancel">Click Me!</button>`;
-		sentMessage += `<script>document.getElementById("audioPlayer").addEventListener('click', 
+		sentMessage += `<script>document.getElementById("audioCancel").addEventListener('click', 
 		() => document.getElementById("audioPlayer").src = "cancel.mp4")</script>`
 	}
 	if (req.query.videoFile) {
@@ -19,7 +19,7 @@ app.get('/', (req, res) => {
 	if (req.query.imgFile) {
 		sentMessage += `<img src=${req.query.imgFile} id = "posterImage">`;
 	}
-	
+
 
 
     res.send(sentMessage);
