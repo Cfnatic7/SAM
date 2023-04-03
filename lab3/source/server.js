@@ -21,7 +21,10 @@ app.get('/', (req, res) => {
 	}
 	if (req.query.imgFile) {
 		sentMessage += `<img src=${req.query.imgFile} id = "posterImage">`;
+		sentMessage += `<button type="button" id = "imgCancel">cancel image</button>`;
 		sentMessage += `<button type="button" id = "imgAdd">Add img</button>`;
+		sentMessage += `<script>document.getElementById("imgCancel").addEventListener('click', 
+		() => document.getElementById("posterImage").src = "cancel.jpg")</script>`
 	}
 	sentMessage += `<table id = 'playlist_table'> 
 					  <tr>
@@ -56,6 +59,20 @@ app.get('/', (req, res) => {
 			cell1.innerHTML = table.rows.length - 1;
 			cell2.innerHTML = document.getElementById('videoPlayer').src
 			cell3.innerText = 'Video';
+		})</script>`
+	}
+
+	if (req.query.imgFile) {
+		sentMessage += `<script>document.getElementById("imgAdd").addEventListener('click',
+		() => {
+    			let table = document.getElementById('playlist_table');
+                let row = table.insertRow(table.rows.length);
+    			let cell1 = row.insertCell(0);
+				let cell2 = row.insertCell(1);
+            	let cell3 = row.insertCell(2);
+            	cell1.innerHTML = table.rows.length - 1;
+            	cell2.innerHTML = document.getElementById('posterImage').src;
+            	cell3.innerText = 'Image';
 		})</script>`
 	}
 
