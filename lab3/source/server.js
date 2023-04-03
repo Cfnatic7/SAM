@@ -34,29 +34,29 @@ app.get('/', (req, res) => {
 	if (req.query.audioFile) {
 		sentMessage += `<script>document.getElementById("audioAdd").addEventListener('click',
 		() => {
-    			let table = document.getElementById("playlist_table");
+    			let table = document.getElementById('playlist_table');
                 let row = table.insertRow(table.rows.length);
     			let cell1 = row.insertCell(0);
 				let cell2 = row.insertCell(1);
             	let cell3 = row.insertCell(2);
-            	cell1.innerHTML = table.rows.length + 1
-            	cell2.innerHTML = document.getElementById("audioPlayer").src}
-            	cell3.innerText = 'Audio'
-		}</script>`
+            	cell1.innerHTML = table.rows.length + ;
+            	cell2.innerHTML = document.getElementById('audioPlayer').src;
+            	cell3.innerText = 'Audio';
+		})</script>`
 	}
 
 	if (req.query.videoFile) {
 		sentMessage += `<script>document.getElementById('videoAdd').addEventListener('click',
 		() => {
-    		let table = document.getElementById('playlist_table').insertRow(table.rows.length);
+    		let table = document.getElementById('playlist_table');
             let row = table.insertRow(table.rows.length);
 			let cell1 = row.insertCell(0);
 			let cell2 = row.insertCell(1);
 			let cell3 = row.insertCell(2);
 			cell1.innerHTML = table.rows.length + 1
-			cell2.innerHTML = document.getElementById("videoPlayer").src
-			cell3.innerText = 'Video'
-		}</script>`
+			cell2.innerHTML = document.getElementById('videoPlayer').src
+			cell3.innerText = 'Video';
+		})</script>`
 	}
 
 
