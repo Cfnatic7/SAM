@@ -9,7 +9,7 @@ app.get('/', (req, res) => {
 		sentMessage += `<button type="button" id = "audioCancel">cancel audio</button>`;
 		sentMessage += `<button type="button" id = "audioAdd">Add audio</button>`;
 		sentMessage += `<script>document.getElementById("audioCancel").addEventListener('click', 
-		() => document.getElementById("audioPlayer").src = "cancel.mp4")</script>`
+		() => document.getElementById("audioPlayer").src = "cancel.mp3")</script>`
 
 	}
 	if (req.query.videoFile) {
@@ -32,30 +32,30 @@ app.get('/', (req, res) => {
 					</table>`
 
 	if (req.query.audioFile) {
-		sentMessage += `<script defer>document.getElementById("audioAdd").addEventListener('click', 
+		sentMessage += `<script>document.getElementById("audioAdd").addEventListener('click',
 		() => {
-    		let table = document.getElementById("playlist_table");
-    		let row = table.insertRow(table.rows.length);
-    		let cell1 = row.insertCell(0);
-			let cell2 = row.insertCell(1);
-            let cell3 = row.insertCell(2);
-            cell1.innerHTML = "${table.rows.length + 1}"
-            cell2.innerHTML = "${document.getElementById("audioPlayer").src}"
-            cell3.innerText = "Audio"
+    			let table = document.getElementById("playlist_table");
+                let row = table.insertRow(table.rows.length);
+    			let cell1 = row.insertCell(0);
+				let cell2 = row.insertCell(1);
+            	let cell3 = row.insertCell(2);
+            	cell1.innerHTML = table.rows.length + 1
+            	cell2.innerHTML = document.getElementById("audioPlayer").src}
+            	cell3.innerText = 'Audio'
 		}</script>`
 	}
 
 	if (req.query.videoFile) {
-		sentMessage += `<script defer>document.getElementById("videoAdd").addEventListener('click', 
+		sentMessage += `<script>document.getElementById('videoAdd').addEventListener('click',
 		() => {
-    		let table = document.getElementById("playlist_table");
-    		let row = table.insertRow(table.rows.length);
-    		let cell1 = row.insertCell(0);
+    		let table = document.getElementById('playlist_table').insertRow(table.rows.length);
+            let row = table.insertRow(table.rows.length);
+			let cell1 = row.insertCell(0);
 			let cell2 = row.insertCell(1);
-            let cell3 = row.insertCell(2);
-            cell1.innerHTML = "${table.rows.length + 1}"
-            cell2.innerHTML = "${document.getElementById("audioPlayer").src}"
-            cell3.innerText = "Audio"
+			let cell3 = row.insertCell(2);
+			cell1.innerHTML = table.rows.length + 1
+			cell2.innerHTML = document.getElementById("videoPlayer").src
+			cell3.innerText = 'Video'
 		}</script>`
 	}
 
