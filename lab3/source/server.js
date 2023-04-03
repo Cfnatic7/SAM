@@ -19,6 +19,13 @@ app.get('/', (req, res) => {
 	if (req.query.imgFile) {
 		sentMessage += `<img src=${req.query.imgFile} id = "posterImage">`;
 	}
+	sentMessage += `<table id = 'playlist_table'> 
+					  <tr>
+    					<th>No.</th>
+    					<th>URL</th>
+    				  	<th>Type</th>
+  					  </tr>`
+	sent
 
 
 
