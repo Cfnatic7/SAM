@@ -39,7 +39,7 @@ app.get('/', (req, res) => {
     			let cell1 = row.insertCell(0);
 				let cell2 = row.insertCell(1);
             	let cell3 = row.insertCell(2);
-            	cell1.innerHTML = table.rows.length + ;
+            	cell1.innerHTML = table.rows.length - 1;
             	cell2.innerHTML = document.getElementById('audioPlayer').src;
             	cell3.innerText = 'Audio';
 		})</script>`
@@ -53,7 +53,7 @@ app.get('/', (req, res) => {
 			let cell1 = row.insertCell(0);
 			let cell2 = row.insertCell(1);
 			let cell3 = row.insertCell(2);
-			cell1.innerHTML = table.rows.length + 1
+			cell1.innerHTML = table.rows.length - 1;
 			cell2.innerHTML = document.getElementById('videoPlayer').src
 			cell3.innerText = 'Video';
 		})</script>`
