@@ -43,9 +43,12 @@ app.get('/', (req, res) => {
     			let cell1 = row.insertCell(0);
 				let cell2 = row.insertCell(1);
             	let cell3 = row.insertCell(2);
+                let cell4 = row.insertCell(3);
+            	
             	cell1.innerHTML = table.rows.length - 1;
             	cell2.innerHTML = document.getElementById('audioPlayer').src;
             	cell3.innerText = 'Audio';
+                cell4.innerHTML = '<button type="button" class="removeRowButton">Delete</button>';
 		})</script>`
 	}
 
@@ -57,9 +60,11 @@ app.get('/', (req, res) => {
 			let cell1 = row.insertCell(0);
 			let cell2 = row.insertCell(1);
 			let cell3 = row.insertCell(2);
+            let cell4 = row.insertCell(3);
 			cell1.innerHTML = table.rows.length - 1;
 			cell2.innerHTML = document.getElementById('videoPlayer').src
 			cell3.innerText = 'Video';
+            cell4.innerHTML = '<button type="button" class="removeRowButton">Delete</button>';
 		})</script>`
 	}
 
@@ -71,9 +76,11 @@ app.get('/', (req, res) => {
     			let cell1 = row.insertCell(0);
 				let cell2 = row.insertCell(1);
             	let cell3 = row.insertCell(2);
+                let cell4 = row.insertCell(3);
             	cell1.innerHTML = table.rows.length - 1;
             	cell2.innerHTML = document.getElementById('posterImage').src;
             	cell3.innerText = 'Image';
+                cell4.innerHTML = '<button type="button" class="removeRowButton">Delete</button>';
 		})</script>`
 	}
 
