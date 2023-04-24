@@ -84,6 +84,20 @@ app.get('/', (req, res) => {
 		})</script>`
 	}
 
+	sentMessage += `
+	<script>
+		const deleteButtons = document.querySelectorAll('.removeRowButton')
+		deleteButtons.forEach( (button) => {
+            
+            button.addEventListener('click', () => {
+                const row = button.parentElement.parentElement;
+                row.remove();
+            })
+		})
+	
+	</script>
+	`
+
 
 
     res.send(sentMessage);
