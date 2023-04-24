@@ -31,6 +31,7 @@ app.get('/', (req, res) => {
     					<th>No.</th>
     					<th>URL</th>
     				  	<th>Type</th>
+    				  	<th>Action</th>th>
   					  </tr>
 					</table>`
 
