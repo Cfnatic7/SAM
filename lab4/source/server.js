@@ -35,6 +35,21 @@ app.get('/', (req, res) => {
   					  </tr>
 					</table>`
 
+	sentMessage += `
+	<script>
+	let addDeleteToDeleteButtons = () => {
+        		const deleteButtons = document.querySelectorAll('.removeRowButton')
+		deleteButtons.forEach( (button) => {
+            
+            button.addEventListener('click', () => {
+                const row = button.parentElement.parentElement;
+                row.remove();
+            })
+		})
+	}
+	</script>
+	`
+
 	if (req.query.audioFile) {
 		sentMessage += `<script>document.getElementById("audioAdd").addEventListener('click',
 		() => {
@@ -49,6 +64,7 @@ app.get('/', (req, res) => {
             	cell2.innerHTML = document.getElementById('audioPlayer').src;
             	cell3.innerText = 'Audio';
                 cell4.innerHTML = '<button type="button" class="removeRowButton">Delete</button>';
+                addDeleteToDeleteButtons();
 		})</script>`
 	}
 
@@ -65,6 +81,7 @@ app.get('/', (req, res) => {
 			cell2.innerHTML = document.getElementById('videoPlayer').src
 			cell3.innerText = 'Video';
             cell4.innerHTML = '<button type="button" class="removeRowButton">Delete</button>';
+            addDeleteToDeleteButtons();
 		})</script>`
 	}
 
@@ -81,22 +98,9 @@ app.get('/', (req, res) => {
             	cell2.innerHTML = document.getElementById('posterImage').src;
             	cell3.innerText = 'Image';
                 cell4.innerHTML = '<button type="button" class="removeRowButton">Delete</button>';
+                addDeleteToDeleteButtons();
 		})</script>`
 	}
-
-	sentMessage += `
-	<script>
-		const deleteButtons = document.querySelectorAll('.removeRowButton')
-		deleteButtons.forEach( (button) => {
-            
-            button.addEventListener('click', () => {
-                const row = button.parentElement.parentElement;
-                row.remove();
-            })
-		})
-	
-	</script>
-	`
 
 
 
