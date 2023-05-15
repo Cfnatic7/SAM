@@ -50,6 +50,27 @@ app.get('/', (req, res) => {
 	</script>
 	`
 
+	sentMessage += `
+	<script>
+	let addMoveRowUpToUpButtons = () => {
+        		const moveUpButtons = document.querySelectorAll('.moveRowUpButton')
+				moveUpButtons.forEach( (button) => {
+            
+            button.addEventListener('click', () => {
+                const row = button.parentElement.parentElement;
+				let prevRow = row.previousElementSibling;
+				if (prevRow) {
+					row.parentNode.insertBefore(row, prevRow)
+				}
+				else {
+					row.parentNode.appendChild(row);
+				}
+            })
+		})
+	}
+	</script>
+	`
+
 	if (req.query.audioFile) {
 		sentMessage += `<script>document.getElementById("audioAdd").addEventListener('click',
 		() => {
@@ -63,8 +84,9 @@ app.get('/', (req, res) => {
             	cell1.innerHTML = table.rows.length - 1;
             	cell2.innerHTML = document.getElementById('audioPlayer').src;
             	cell3.innerText = 'Audio';
-                cell4.innerHTML = '<button type="button" class="removeRowButton">Delete</button>';
+                cell4.innerHTML = '<button type="button" class="removeRowButton">Delete</button> <button type="button" class="moveRowUpButton">Up</button> <button type="button" class="moveRowDownButton">Down</button>';
                 addDeleteToDeleteButtons();
+				addMoveRowUpToUpButtons();
 		})</script>`
 	}
 
@@ -80,8 +102,9 @@ app.get('/', (req, res) => {
 			cell1.innerHTML = table.rows.length - 1;
 			cell2.innerHTML = document.getElementById('videoPlayer').src
 			cell3.innerText = 'Video';
-            cell4.innerHTML = '<button type="button" class="removeRowButton">Delete</button>';
+            cell4.innerHTML = '<button type="button" class="removeRowButton">Delete</button> <button type="button" class="moveRowUpButton">Up</button> <button type="button" class="moveRowDownButton">Down</button>';
             addDeleteToDeleteButtons();
+			addMoveRowUpToUpButtons();
 		})</script>`
 	}
 
@@ -97,8 +120,9 @@ app.get('/', (req, res) => {
             	cell1.innerHTML = table.rows.length - 1;
             	cell2.innerHTML = document.getElementById('posterImage').src;
             	cell3.innerText = 'Image';
-                cell4.innerHTML = '<button type="button" class="removeRowButton">Delete</button>';
+                cell4.innerHTML = '<button type="button" class="removeRowButton">Delete</button> <button type="button" class="moveRowUpButton">Up</button> <button type="button" class="moveRowDownButton">Down</button>';
                 addDeleteToDeleteButtons();
+				addMoveRowUpToUpButtons();
 		})</script>`
 	}
 
