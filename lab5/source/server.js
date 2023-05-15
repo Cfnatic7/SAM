@@ -52,24 +52,25 @@ app.get('/', (req, res) => {
 
 	sentMessage += `
 	<script>
-	let addMoveRowUpToUpButtons = () => {
-        		const moveUpButtons = document.querySelectorAll('.moveRowUpButton')
-				moveUpButtons.forEach( (button) => {
-            
-            button.addEventListener('click', () => {
-                const row = button.parentElement.parentElement;
-				let prevRow = row.previousElementSibling;
-				if (prevRow.rowIndex > 0) {
-					row.parentNode.insertBefore(row, prevRow)
-				}
-				else {
-					row.parentNode.appendChild(row);
-				}
-            })
-		})
+	let addMoveRowUpToUpButton = (button) => {
+            const row = button.parentElement.parentElement;
+			let prevRow = row.previousElementSibling;
+			if (prevRow.rowIndex > 0) {
+				row.parentNode.insertBefore(row, prevRow)
+			}
+			else {
+				row.parentNode.appendChild(row);
+			}
 	}
 	</script>
 	`
+
+	sentMessage += `
+	<script>
+		let insertAfter = (newNode, referenceNode) => {
+			referenceNode.parentNode.insertBefore(newNode, referenceNode.nextSibling);
+		}
+	</script>`
 
 	
 	sentMessage += `
@@ -83,10 +84,10 @@ app.get('/', (req, res) => {
 				let prevRow = row.nextElementSibling;
 				let firstRow = document.querySelector('tr');
 				if (prevRow.rowIndex < document.querySelectorAll('tr').length) {
-					row.parentNode.insertAfter(row, prevRow)
+					insertAfter(row, prevRow);
 				}
 				else if (firstRow) {
-					row.parentNode.insertAfter(row, firstRow);
+					insertAfter(row, firstRow);
 				}
             })
 		})
@@ -107,9 +108,9 @@ app.get('/', (req, res) => {
             	cell1.innerHTML = table.rows.length - 1;
             	cell2.innerHTML = document.getElementById('audioPlayer').src;
             	cell3.innerText = 'Audio';
-                cell4.innerHTML = '<button type="button" class="removeRowButton">Delete</button> <button type="button" class="moveRowUpButton">Up</button> <button type="button" class="moveRowDownButton">Down</button>';
+                cell4.innerHTML = '<button type="button" class="removeRowButton">Delete</button> <button type="button" class="moveRowUpButton" onclick="addMoveRowUpToUpButton(this)">Up</button> <button type="button" class="moveRowDownButton">Down</button>';
                 addDeleteToDeleteButtons();
-				addMoveRowUpToUpButtons();
+				// addMoveRowDownToDownButtons();
 		})</script>`
 	}
 
@@ -125,9 +126,9 @@ app.get('/', (req, res) => {
 			cell1.innerHTML = table.rows.length - 1;
 			cell2.innerHTML = document.getElementById('videoPlayer').src
 			cell3.innerText = 'Video';
-            cell4.innerHTML = '<button type="button" class="removeRowButton">Delete</button> <button type="button" class="moveRowUpButton">Up</button> <button type="button" class="moveRowDownButton">Down</button>';
+            cell4.innerHTML = '<button type="button" class="removeRowButton">Delete</button> <button type="button" class="moveRowUpButton" onclick="addMoveRowUpToUpButton(this)">Up</button> <button type="button" class="moveRowDownButton">Down</button>';
             addDeleteToDeleteButtons();
-			addMoveRowUpToUpButtons();
+			// addMoveRowDownToDownButtons();
 		})</script>`
 	}
 
@@ -143,9 +144,9 @@ app.get('/', (req, res) => {
             	cell1.innerHTML = table.rows.length - 1;
             	cell2.innerHTML = document.getElementById('posterImage').src;
             	cell3.innerText = 'Image';
-                cell4.innerHTML = '<button type="button" class="removeRowButton">Delete</button> <button type="button" class="moveRowUpButton">Up</button> <button type="button" class="moveRowDownButton">Down</button>';
+                cell4.innerHTML = '<button type="button" class="removeRowButton">Delete</button> <button type="button" class="moveRowUpButton" onclick="addMoveRowUpToUpButton(this)">Up</button> <button type="button" class="moveRowDownButton">Down</button>';
                 addDeleteToDeleteButtons();
-				addMoveRowUpToUpButtons();
+				// addMoveRowDownToDownButtons();
 		})</script>`
 	}
 
