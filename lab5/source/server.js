@@ -75,11 +75,8 @@ app.get('/', (req, res) => {
 	
 	sentMessage += `
 	<script>
-	let addMoveRowDownToDownButtons = () => {
-        		const moveDownButtons = document.querySelectorAll('.moveRowDownButton')
-				moveDownButtons.forEach( (button) => {
+	let addMoveRowDownToDownButton = (button) => {
             
-            button.addEventListener('click', () => {
                 const row = button.parentElement.parentElement;
 				let prevRow = row.nextElementSibling;
 				let firstRow = document.querySelector('tr');
@@ -89,8 +86,6 @@ app.get('/', (req, res) => {
 				else if (firstRow) {
 					insertAfter(row, firstRow);
 				}
-            })
-		})
 	}
 	</script>
 	`
@@ -108,9 +103,8 @@ app.get('/', (req, res) => {
             	cell1.innerHTML = table.rows.length - 1;
             	cell2.innerHTML = document.getElementById('audioPlayer').src;
             	cell3.innerText = 'Audio';
-                cell4.innerHTML = '<button type="button" class="removeRowButton">Delete</button> <button type="button" class="moveRowUpButton" onclick="addMoveRowUpToUpButton(this)">Up</button> <button type="button" class="moveRowDownButton">Down</button>';
+                cell4.innerHTML = '<button type="button" class="removeRowButton">Delete</button> <button type="button" class="moveRowUpButton" onclick="addMoveRowUpToUpButton(this)">Up</button> <button type="button" class="moveRowDownButton" onclick="addMoveRowDownToDownButton(this)">Down</button>';
                 addDeleteToDeleteButtons();
-				// addMoveRowDownToDownButtons();
 		})</script>`
 	}
 
@@ -126,9 +120,8 @@ app.get('/', (req, res) => {
 			cell1.innerHTML = table.rows.length - 1;
 			cell2.innerHTML = document.getElementById('videoPlayer').src
 			cell3.innerText = 'Video';
-            cell4.innerHTML = '<button type="button" class="removeRowButton">Delete</button> <button type="button" class="moveRowUpButton" onclick="addMoveRowUpToUpButton(this)">Up</button> <button type="button" class="moveRowDownButton">Down</button>';
+            cell4.innerHTML = '<button type="button" class="removeRowButton">Delete</button> <button type="button" class="moveRowUpButton" onclick="addMoveRowUpToUpButton(this)">Up</button> <button type="button" class="moveRowDownButton" onclick="addMoveRowDownToDownButton(this)">Down</button>';
             addDeleteToDeleteButtons();
-			// addMoveRowDownToDownButtons();
 		})</script>`
 	}
 
@@ -144,9 +137,8 @@ app.get('/', (req, res) => {
             	cell1.innerHTML = table.rows.length - 1;
             	cell2.innerHTML = document.getElementById('posterImage').src;
             	cell3.innerText = 'Image';
-                cell4.innerHTML = '<button type="button" class="removeRowButton">Delete</button> <button type="button" class="moveRowUpButton" onclick="addMoveRowUpToUpButton(this)">Up</button> <button type="button" class="moveRowDownButton">Down</button>';
+                cell4.innerHTML = '<button type="button" class="removeRowButton">Delete</button> <button type="button" class="moveRowUpButton" onclick="addMoveRowUpToUpButton(this)">Up</button> <button type="button" class="moveRowDownButton" onclick="addMoveRowDownToDownButton(this)">Down</button>';
                 addDeleteToDeleteButtons();
-				// addMoveRowDownToDownButtons();
 		})</script>`
 	}
 
