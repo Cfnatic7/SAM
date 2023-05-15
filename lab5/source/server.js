@@ -59,7 +59,7 @@ app.get('/', (req, res) => {
             button.addEventListener('click', () => {
                 const row = button.parentElement.parentElement;
 				let prevRow = row.previousElementSibling;
-				if (prevRow) {
+				if (prevRow.rowIndex > 0) {
 					row.parentNode.insertBefore(row, prevRow)
 				}
 				else {
