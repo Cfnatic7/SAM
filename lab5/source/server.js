@@ -80,7 +80,7 @@ app.get('/', (req, res) => {
                 const row = button.parentElement.parentElement;
 				let prevRow = row.nextElementSibling;
 				let firstRow = document.querySelector('tr');
-				if (prevRow.rowIndex < document.querySelectorAll('tr').length) {
+				if (row.rowIndex < document.querySelectorAll('tr').length - 1) {
 					insertAfter(row, prevRow);
 				}
 				else if (firstRow) {
