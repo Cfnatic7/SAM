@@ -71,6 +71,29 @@ app.get('/', (req, res) => {
 	</script>
 	`
 
+	
+	sentMessage += `
+	<script>
+	let addMoveRowDownToDownButtons = () => {
+        		const moveDownButtons = document.querySelectorAll('.moveRowDownButton')
+				moveDownButtons.forEach( (button) => {
+            
+            button.addEventListener('click', () => {
+                const row = button.parentElement.parentElement;
+				let prevRow = row.nextElementSibling;
+				let firstRow = document.querySelector('tr');
+				if (prevRow.rowIndex < document.querySelectorAll('tr').length) {
+					row.parentNode.insertAfter(row, prevRow)
+				}
+				else if (firstRow) {
+					row.parentNode.insertAfter(row, firstRow);
+				}
+            })
+		})
+	}
+	</script>
+	`
+
 	if (req.query.audioFile) {
 		sentMessage += `<script>document.getElementById("audioAdd").addEventListener('click',
 		() => {
