@@ -10,15 +10,15 @@ app.get('/', (req, res) => {
 		sentMessage += `<button type="button" id = "audioAdd">Add audio</button>`;
 		sentMessage += `<script>document.getElementById("audioCancel").addEventListener('click', 
 		() => document.getElementById("audioPlayer").src = "cancel.mp3")</script>`;
-		sentMessage += `<button onclick="() => {
+		sentMessage += `<button id = "audioPlay" onclick="() => {
 			let audio = document.getElementById("audioPlayer");
-			if (audio.paused) {
-				audio.play();
-			}
-			else {
-				audio.pause();
-			}
-		}">play/pause</button>`;
+			audio.play();
+		}">Play Audio</button>`;
+
+		sentMessage += `<button id = "audioPause" onclick="() => {
+			let audio = document.getElementById("audioPlayer");
+			audio.pause();
+		}">Pause Audio</button>`;
 
 	}
 	if (req.query.videoFile) {
@@ -27,15 +27,15 @@ app.get('/', (req, res) => {
 		sentMessage += `<button type="button" id = "videoAdd">Add video</button>`;
 		sentMessage += `<script>document.getElementById("videoCancel").addEventListener('click', 
 		() => document.getElementById("videoPlayer").src = "cancel.mp4")</script>`
-		sentMessage += `<button onclick="() => {
+		sentMessage += `<button id = "videoPlay" onclick="() => {
 			let video = document.getElementById("videoPlayer");
-			if (video.paused) {
-				video.play();
-			}
-			else {
-				video.pause();
-			}
-		}">play/pause</button>`;
+			video.play();
+		}">Play Video</button>`;
+
+		sentMessage += `<button id = "videoPause" onclick="() => {
+			let video = document.getElementById("videoPlayer");
+			video.pause();
+		}">Play Video</button>`;
 	}
 	if (req.query.imgFile) {
 		sentMessage += `<img src=${req.query.imgFile} id = "posterImage">`;
