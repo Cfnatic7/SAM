@@ -9,7 +9,16 @@ app.get('/', (req, res) => {
 		sentMessage += `<button type="button" id = "audioCancel">cancel audio</button>`;
 		sentMessage += `<button type="button" id = "audioAdd">Add audio</button>`;
 		sentMessage += `<script>document.getElementById("audioCancel").addEventListener('click', 
-		() => document.getElementById("audioPlayer").src = "cancel.mp3")</script>`
+		() => document.getElementById("audioPlayer").src = "cancel.mp3")</script>`;
+		sentMessage += `<button onclick="() => {
+			let audio = document.getElementById("audioPlayer");
+			if (audio.paused) {
+				audio.play();
+			}
+			else {
+				audio.pause();
+			}
+		}">play/pause</button>`;
 
 	}
 	if (req.query.videoFile) {
@@ -18,6 +27,15 @@ app.get('/', (req, res) => {
 		sentMessage += `<button type="button" id = "videoAdd">Add video</button>`;
 		sentMessage += `<script>document.getElementById("videoCancel").addEventListener('click', 
 		() => document.getElementById("videoPlayer").src = "cancel.mp4")</script>`
+		sentMessage += `<button onclick="() => {
+			let video = document.getElementById("videoPlayer");
+			if (video.paused) {
+				video.play();
+			}
+			else {
+				video.pause();
+			}
+		}">play/pause</button>`;
 	}
 	if (req.query.imgFile) {
 		sentMessage += `<img src=${req.query.imgFile} id = "posterImage">`;
