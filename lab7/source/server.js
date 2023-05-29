@@ -35,7 +35,7 @@ app.get('/', (req, res) => {
 		sentMessage += `<button id = "videoPause" onclick="() => {
 			let video = document.getElementById("videoPlayer");
 			video.pause();
-		}">Play Video</button>`;
+		}">Pause Video</button>`;
 	}
 	if (req.query.imgFile) {
 		sentMessage += `<img src=${req.query.imgFile} id = "posterImage">`;
