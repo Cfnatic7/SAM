@@ -26,7 +26,7 @@ app.get('/', (req, res) => {
 		sentMessage += `<button type="button" id = "videoCancel">cancel video</button>`;
 		sentMessage += `<button type="button" id = "videoAdd">Add video</button>`;
 		sentMessage += `<script>document.getElementById("videoCancel").addEventListener('click', 
-		() => document.getElementById("videoPlayer").src = "cancel.mp4")</script>`
+		() => document.getElementById("videoPlayer").src = "cancel.mp4")</script>`;
 		sentMessage += `<button id = "videoPlay" onclick="() => {
 			let video = document.getElementById("videoPlayer");
 			video.play();
